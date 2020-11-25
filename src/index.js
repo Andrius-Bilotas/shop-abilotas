@@ -1,22 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import ProductListContainer from './components/ProductList/ProductListContainer';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch,  Redirect, Route } from 'react-router';
-import { BrowserRouter, Link } from 'react-router-dom';
-
-var AppContainer = (props) => {
-  return (
-    <div>
-      <div className="py-3 text-center" style={{backgroundColor: 'yellow'}}>
-        <Link to='/'>Home</Link> | &nbsp;
-        <Link to='/products'>Products</Link> | &nbsp;
-      </div>
-      {props.children}
-    </div>
-  );
-};
+import { BrowserRouter } from 'react-router-dom';
+import NavigationComponent from './components/Navigation/NavigationComponent';
+import ProductAdministrationContainer from './components/ProductAdministration/ProductAdministrationContainer';
+import ProductContainer from './components/Product/ProductContainer';
 
 var NoMatch = (props) => {
   var goApp = () => props.history.push("/");
@@ -31,12 +22,15 @@ var NoMatch = (props) => {
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppContainer>
+      <NavigationComponent>
         <Switch>
-          <Route exact path='/' component={App}/>
+          <Route exact path='/' component={ProductListContainer}/>
+          <Route exact path='/products' component={ProductListContainer}/>
+          <Route exact path='/products/:id' component={ProductContainer}/>
+          <Route exact path='/admin' component={ProductAdministrationContainer}/>
           <Route path="*" component={NoMatch}/>
         </Switch>
-      </AppContainer>
+      </NavigationComponent>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

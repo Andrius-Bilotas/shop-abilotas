@@ -22,13 +22,21 @@ export default class ProductListContainer extends Component {
 
     render() {
         return (
-            <div className="row">
-                {this.state.product.map((item) => {
-                    return (
-                        <ProductCardComponent name={item.title} price={item.price} key={item.id} />
-                    )
-                })}
-            </div>
+            <main className="container pt-5">
+                <div className="row">
+                    {this.state.product.map((item) => {
+                        return (
+                            <ProductCardComponent 
+                            name={item.title} 
+                            price={item.price} 
+                            image={item.image} 
+                            id={item.id} 
+                            key={item.id} 
+                            />
+                        )
+                    })}
+                </div>
+            </main>
         );
     }
 }
