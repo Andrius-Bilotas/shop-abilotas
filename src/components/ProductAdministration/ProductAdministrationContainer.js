@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductAdministrationComponent from './ProductAdministrationComponent';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class ProductAdministrationContainer extends Component {
     constructor() {
@@ -21,7 +22,15 @@ export default class ProductAdministrationContainer extends Component {
 
     render() {
         return (
-            <main className="container pt-5">
+            <main className="container pt-3">
+                <div className="row pb-3">
+                    <Link 
+                    to={`/admin/products/new`} 
+                    className="btn btn-primary"
+                    >
+                        Add new product
+                    </Link>
+                </div>
                 <div className="row">
                     <table className="table">
                         <thead>
