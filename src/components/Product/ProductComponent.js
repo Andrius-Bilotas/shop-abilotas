@@ -5,13 +5,14 @@ import axios from 'axios';
 
 function ProductComponent({ product }) {
 
-    const {userName} = useContext(CartContext);
+    const context = useContext(CartContext);
 
     const handleCLick = (event) => {
         event.preventDefault();
-        if (userName.length > 0) {
-            axios.post(`https://itpro2017.herokuapp.com/api/users/${userName}/cart-products`, {title: product.title, image: product.image, id: product.id})
+        if (context.userName.length > 0) {
+            axios.post(`https://itpro2017.herokuapp.com/api/users/${context.userName}/cart-products`, {title: product.title, image: product.image, id: product.id})
             .then((response) => {
+                context.productCount = response.data.length;
                 //console.log(response);
             })
             .catch((error) => {

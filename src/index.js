@@ -26,8 +26,8 @@ var NoMatch = (props) => {
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartContext.Provider value={{userName: ""}}>
-        <NavigationComponent>
+      <CartContext.Provider value={{userName: "", productCount: 0}}>
+        <NavigationComponent />
           <Switch>
             <Route exact path='/' component={ProductListContainer} />
             <Route exact path='/products' component={ProductListContainer} />
@@ -39,7 +39,6 @@ ReactDOM.render(
             <Route exact path='/cart' component={CartContainer} />
             <Route path="*" component={NoMatch} />
           </Switch>
-        </NavigationComponent>
       </CartContext.Provider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,0 +1,23 @@
+[33mcommit 153c27cb00c330ba06889cc00d31d86c4db5d324[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Andrius Bilotas <andrius.bilotas@gmail.com>
+Date:   Sat Nov 28 22:25:01 2020 +0200
+
+    Uzbaigtas parduotuves funkcionalumas: pridetas krepselis, produktu administravimas (nauju produktu pridejimas, esamu koregavimas), sudaryta sasaja su backend
+
+[33mcommit 5f5d30ac434a010d693c2c8874fc72f6841b3151[m
+Author: Andrius Bilotas <andrius.bilotas@gmail.com>
+Date:   Wed Nov 25 20:49:06 2020 +0200
+
+    Prideta puslapio navigacija, produktu administravimo puslapis, individualaus produkto puslapis
+
+[33mcommit c1cd0ecc5e3d6b211a9f57e99baeed1f7eeb153e[m
+Author: Andrius Bilotas <andrius.bilotas@gmail.com>
+Date:   Wed Nov 25 15:32:08 2020 +0200
+
+    Pridetas bazinis functionalumas, ProductListComponent, ProductListContainer . Informacijos atvaizdavimas is isorinio objekto
+
+[33mcommit 96a1df7f419b5587e9e5115b9b653c42e5e34a25[m
+Author: Andrius Bilotas <andrius.bilotas@gmail.com>
+Date:   Wed Nov 25 12:18:13 2020 +0200
+
+    Sukurtas react app, pratrinti nereikalingi failai, isvalytas App.js - paruosta tolimesniam darbui
