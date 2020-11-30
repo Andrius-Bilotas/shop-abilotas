@@ -9,16 +9,19 @@ function ProductComponent({ product }) {
 
     const handleCLick = (event) => {
         event.preventDefault();
-        if (context.userName.length > 0) {
-            axios.post(`https://itpro2017.herokuapp.com/api/users/${context.userName}/cart-products`, {title: product.title, image: product.image, id: product.id})
+        console.log(context.userService.name);
+        //if (context.userService.name > 0) {
+            console.log("praejo if");
+            axios.post(`https://itpro2017.herokuapp.com/api/users/${context.userService.name}/cart-products`, {title: product.title, image: product.image, id: product.id})
             .then((response) => {
-                context.productCount = response.data.length;
-                //console.log(response);
+                context.userService.productCount = response.data.length;
+                context.userService.updateCount();
+                console.log(response);
             })
             .catch((error) => {
                 console.log(error);
             })
-        }
+        //}
     }
 
     return (

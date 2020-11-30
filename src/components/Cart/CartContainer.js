@@ -8,12 +8,11 @@ export default class CartContainer extends Component {
     constructor() {
         super();
         this.state = { products: [] };
-        //this.removeItem = this.removeItem.bind(this);
     };
 
 
     componentDidMount() {
-        let userName = this.context.userName;
+        let userName = this.context.userService.name;
         //console.log(userName);
         if (userName.length > 0) {
             axios.get(`https://itpro2017.herokuapp.com/api/users/${userName}/cart-products`)
@@ -29,10 +28,12 @@ export default class CartContainer extends Component {
     };
 
     removeItem = (id) => {
-        let userName = this.context.userName;
+        let userName = this.context.userService.name;
         axios.delete(`https://itpro2017.herokuapp.com/api/users/${userName}/cart-products/${id}`)
             .then((response) => {
                 this.setState({ products: response.data });
+                this.context.userService.productCount = response.data.length;
+                this.context.userService.updateCount();
                 //console.log(userName);
                 //console.log(this.state);
             })

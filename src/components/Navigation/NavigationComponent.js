@@ -2,24 +2,26 @@ import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 import CartContext from '../Context/CartContext';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import CartSummaryContainer from '../Cart/CartSummaryContainer';
 
 function NavigationComponent(props) {
 
   var context = useContext(CartContext);
   var newName = "";
-  const [count, setCount] = useState(context.productCount);
+  //const [count, setCount] = useState(context.productCount);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    context.userName = newName;
+    context.userService.name = newName;
+    context.userService.updateName();
     axios.get(`https://itpro2017.herokuapp.com/api/users/${newName}/cart-products`)
       .then((response) => {
-        context.productCount = response.data.length;
-        setCount(context.productCount);
-        //console.log(count);
-        //console.log(response.data.length);
+        context.userService.productCount = response.data.length;
+        context.userService.updateCount();
+        //setCount(context.productCount);
+        console.log(newName);
+        console.log(context.userService.name);
+        console.log(response.data);
       })
     //setName(newName);
     //console.log(newName);
@@ -49,7 +51,7 @@ function NavigationComponent(props) {
               </form>
             </div>
             <div className="col-8 text-right">
-              <Link to='/cart' className="btn btn-default"><FontAwesomeIcon icon={faShoppingCart} /> {context.productCount} Items</Link>
+              <CartSummaryContainer ctx={context}/>
             </div>
           </div>
         </header>

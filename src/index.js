@@ -12,6 +12,7 @@ import NewProductContainer from './components/Product/NewProductContainer';
 import UpdateProductContainer from './components/Product/UpdateProductContainer';
 import CartContext from './components/Context/CartContext';
 import CartContainer from './components/Cart/CartContainer';
+import CartSummaryContainer from './components/Cart/CartSummaryContainer';
 
 var NoMatch = (props) => {
   var goApp = () => props.history.push("/");
@@ -23,10 +24,41 @@ var NoMatch = (props) => {
   );
 };
 
+class UserService {
+  constructor() {
+    this._name = "";
+    this._productCount = 0
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get productCount() {
+    return this._productCount;
+  }
+
+  set name(name) {
+    this._name = name;
+    this.updateName();
+  }
+
+  set productCount(productCount) {
+    this._productCount = productCount;
+    this.updateCount();
+  }
+
+  updateCount = () => {}
+
+  updateName = () => {}
+}
+
+var userService = new UserService();
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartContext.Provider value={{userName: "", productCount: 0}}>
+      <CartContext.Provider value={{userService: userService}}>
         <NavigationComponent />
           <Switch>
             <Route exact path='/' component={ProductListContainer} />
