@@ -10,10 +10,10 @@ export default class ProductListContainer extends Component {
 
 
     componentDidMount() {
-        axios.get('https://itpro2017.herokuapp.com/api/products')
+        axios.get('/spring-boot-starter/api/products')
             .then((response) => {
                 this.setState({ product: response.data });
-                //console.log(this.state);
+                console.log(this.state);
             })
             .catch((error) => {
                 console.log(error);

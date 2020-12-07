@@ -14,14 +14,14 @@ function NavigationComponent(props) {
     e.preventDefault();
     context.userService.name = newName;
     context.userService.updateName();
-    axios.get(`https://itpro2017.herokuapp.com/api/users/${newName}/cart-products`)
+    axios.get(`/spring-boot-starter/api/users/${newName}/cart-products`)
       .then((response) => {
         context.userService.productCount = response.data.length;
         context.userService.updateCount();
         //setCount(context.productCount);
-        console.log(newName);
-        console.log(context.userService.name);
-        console.log(response.data);
+        //console.log(newName);
+        //console.log(context.userService.name);
+        //console.log(response.data);
       })
     //setName(newName);
     //console.log(newName);

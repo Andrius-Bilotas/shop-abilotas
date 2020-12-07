@@ -22,7 +22,7 @@ export default class NewProductContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
-        axios.post('https://itpro2017.herokuapp.com/api/products', this.state)
+        axios.post('/spring-boot-starter/api/products', this.state)
             .then((response) => {
                 console.log(response);
             })

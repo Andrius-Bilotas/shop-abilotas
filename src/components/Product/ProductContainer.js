@@ -9,7 +9,7 @@ export default class ProductContainer extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://itpro2017.herokuapp.com/api/products/${this.props.match.params.id}`)
+        axios.get(`/spring-boot-starter/api/products/${this.props.match.params.id}`)
             .then((response) => {
                 this.setState({product: response.data});
             })

@@ -21,7 +21,7 @@ export default class NewProductContainer extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://itpro2017.herokuapp.com/api/products/${this.props.match.params.id}`)
+        axios.get(`/spring-boot-starter/api/products/${this.props.match.params.id}`)
             .then((response) => {
                 this.setState({ 
                     title: response.data.title,
@@ -39,7 +39,7 @@ export default class NewProductContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
-        axios.put(`https://itpro2017.herokuapp.com/api/products/${this.props.match.params.id}`, this.state)
+        axios.put(`/spring-boot-starter/api/products/${this.props.match.params.id}`, this.state)
             .then((response) => {
                 console.log(response);
                 this.props.history.push("/admin/products");

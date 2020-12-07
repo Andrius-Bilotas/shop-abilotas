@@ -2,6 +2,8 @@
   "name": "shop-abilotas",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:8090/spring-boot-starter",
+  
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",

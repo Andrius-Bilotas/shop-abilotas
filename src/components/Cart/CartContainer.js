@@ -15,11 +15,11 @@ export default class CartContainer extends Component {
         let userName = this.context.userService.name;
         //console.log(userName);
         if (userName.length > 0) {
-            axios.get(`https://itpro2017.herokuapp.com/api/users/${userName}/cart-products`)
+            axios.get(`/spring-boot-starter/api/users/${userName}/cart-products`)
                 .then((response) => {
                     this.setState({ products: response.data });
                     //console.log(userName);
-                    //console.log(this.state);
+                    console.log(this.state.products);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -29,13 +29,13 @@ export default class CartContainer extends Component {
 
     removeItem = (id) => {
         let userName = this.context.userService.name;
-        axios.delete(`https://itpro2017.herokuapp.com/api/users/${userName}/cart-products/${id}`)
+        axios.delete(`/spring-boot-starter/api/users/${userName}/cart-products/${id}`)
             .then((response) => {
                 this.setState({ products: response.data });
                 this.context.userService.productCount = response.data.length;
                 this.context.userService.updateCount();
                 //console.log(userName);
-                //console.log(this.state);
+                console.log(this.state);
             })
             .catch((error) => {
                 console.log(error);

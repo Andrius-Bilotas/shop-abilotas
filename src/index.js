@@ -57,7 +57,7 @@ var userService = new UserService();
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <CartContext.Provider value={{userService: userService}}>
         <NavigationComponent />
           <Switch>
