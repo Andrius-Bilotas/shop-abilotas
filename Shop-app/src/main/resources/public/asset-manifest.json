@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/spring-boot-starter/static/js/main.5c985e33.chunk.js",
+    "main.js.map": "/spring-boot-starter/static/js/main.5c985e33.chunk.js.map",
+    "runtime-main.js": "/spring-boot-starter/static/js/runtime-main.1b4e40bb.js",
+    "runtime-main.js.map": "/spring-boot-starter/static/js/runtime-main.1b4e40bb.js.map",
+    "static/css/2.437d98bc.chunk.css": "/spring-boot-starter/static/css/2.437d98bc.chunk.css",
+    "static/js/2.2269b3fd.chunk.js": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js",
+    "static/js/2.2269b3fd.chunk.js.map": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js.map",
+    "static/js/3.4ebad7d2.chunk.js": "/spring-boot-starter/static/js/3.4ebad7d2.chunk.js",
+    "static/js/3.4ebad7d2.chunk.js.map": "/spring-boot-starter/static/js/3.4ebad7d2.chunk.js.map",
+    "index.html": "/spring-boot-starter/index.html",
+    "precache-manifest.5e47090f8e40b1186fd55bc613893c81.js": "/spring-boot-starter/precache-manifest.5e47090f8e40b1186fd55bc613893c81.js",
+    "service-worker.js": "/spring-boot-starter/service-worker.js",
+    "static/css/2.437d98bc.chunk.css.map": "/spring-boot-starter/static/css/2.437d98bc.chunk.css.map",
+    "static/js/2.2269b3fd.chunk.js.LICENSE.txt": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b4e40bb.js",
+    "static/css/2.437d98bc.chunk.css",
+    "static/js/2.2269b3fd.chunk.js",
+    "static/js/main.5c985e33.chunk.js"
+  ]
+}
