@@ -11,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import it.akademija.model.CreateUserCommand;
-import it.akademija.model.User;
+import it.akademija.user.model.CreateUserCommand;
+import it.akademija.user.model.User;
 
 @RunWith(SpringRunner.class) 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = { App.class })

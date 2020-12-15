@@ -12,7 +12,7 @@ function ProductComponent({ product }) {
         console.log(context.userService.name);
         //if (context.userService.name > 0) {
             console.log("praejo if");
-            axios.post(`/spring-boot-starter/api/users/${context.userService.name}/cart-products`, {title: product.title, image: product.image, id: product.id})
+            axios.post(`/spring-boot-starter/api/users/${context.userService.name}/cart-products`, {title: product.title, image: product.image, id: product.id, description: product.description, price: product.price, quantity: product.quantity})
             .then((response) => {
                 context.userService.productCount = response.data.length;
                 context.userService.updateCount();
