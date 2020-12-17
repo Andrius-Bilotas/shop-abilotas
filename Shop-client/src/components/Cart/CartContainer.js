@@ -42,11 +42,33 @@ export default class CartContainer extends Component {
             })
     };
 
+    quantityChange = (id, e) => {
+        let newQuantity = e.target.value;
+        let userName = this.context.userService.name;
+        axios.put(`/spring-boot-starter/api/users/${userName}/cart-products/${id}?quantity=${newQuantity}`)
+            .then((response) => {
+                this.setState({ products: response.data })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
     render() {
         return (
             <main className="container pt-5">
                 <div className="row">
                     <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Picture</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Quantity in cart</th>
+                                <th scope="col">price/1pcs</th>
+                                <th scope="col">total price</th>
+                                <th scope="col">action</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {
                                 this.state.products.map(product => {
@@ -55,11 +77,25 @@ export default class CartContainer extends Component {
                                             image={product.image}
                                             key={product.id}
                                             id={product.id}
+                                            quantity={product.quantity}
+                                            quantityInCart={product.quantityInCart}
+                                            price={product.price}
+                                            quantityChange={this.quantityChange}
                                             userName={this.context.userName} 
                                             onRemove={this.removeItem}/>
                                     )
                                 })
                             }
+                            <tr>
+                                <td colspan="4"></td>
+                                <td>
+                                    <b>Total amount: {
+                                        this.state.products.reduce((acc, elem) => {
+                                            return acc + (elem.price * elem.quantityInCart);
+                                        }, 0)
+                                    }</b>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -18,7 +18,7 @@ public class InMemoryCartDAO implements CartDao {
 	private final Map<String, List<Product>> cartProducts = new ConcurrentHashMap<>();
 
 	@Override
-	public Set<Product> getCartProducts(String userName) {
+	public CartEntity getCartProducts(String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,6 +37,12 @@ public class InMemoryCartDAO implements CartDao {
 
 	@Override
 	public CartEntity getCartByUsername(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CartEntity updateQuantityInCart(String userName, Product product, int quantity) {
 		// TODO Auto-generated method stub
 		return null;
 	}

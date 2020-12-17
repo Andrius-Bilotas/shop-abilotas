@@ -15,4 +15,6 @@ public interface ProductDao {
 	void updateProduct(Product product);
 	
 	Product getSingleProduct(String id);
+	
+	List<Product> getProductsByTitle(String title);
 }

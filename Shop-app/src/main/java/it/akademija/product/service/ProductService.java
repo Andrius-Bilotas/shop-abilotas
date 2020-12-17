@@ -55,5 +55,22 @@ public class ProductService {
 		product.setProductDetails(productDetails);
 		productDao.updateProduct(product);
 	}
+	
+	@Transactional
+	public List<ServiceProduct> deleteProduct(String id) {
+		productDao.deleteProduct(id);
+		return productDao.getProducts().stream()
+										.map(product -> new ServiceProduct(product.getTitle(), product.getProductDetails().getImage(), product.getProductDetails().getDescription(),
+												product.getPrice(), product.getQuantity(), product.getId()))
+										.collect(Collectors.toList());
+	}
+	
+	@Transactional
+	public List<ServiceProduct> findProductByTitle(String title) {
+		return productDao.getProductsByTitle(title).stream()
+				.map(product -> new ServiceProduct(product.getTitle(), product.getProductDetails().getImage(), product.getProductDetails().getDescription(),
+						product.getPrice(), product.getQuantity(), product.getId()))
+				.collect(Collectors.toList());						
+	}
 
 }

@@ -44,4 +44,10 @@ public class InMemoryProductDAO implements ProductDao {
 		return null;
 	}
 
+	@Override
+	public List<Product> getProductsByTitle(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

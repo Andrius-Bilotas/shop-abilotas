@@ -8,10 +8,11 @@ public final class CreateCartCommand {
 	private String description;
 	private double price;
 	private int quantity;
+	private int quantityInCart;
 	
 	public CreateCartCommand() {}
 
-	public CreateCartCommand(int id, String title, String image, String description, double price, int quantity) {
+	public CreateCartCommand(int id, String title, String image, String description, double price, int quantity, int quantityInCart) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -19,6 +20,7 @@ public final class CreateCartCommand {
 		this.description = description;
 		this.price = price;
 		this.quantity = quantity;
+		this.quantityInCart = quantityInCart;
 	}
 
 	public int getId() {
@@ -67,6 +69,14 @@ public final class CreateCartCommand {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public int getQuantityInCart() {
+		return quantityInCart;
+	}
+
+	public void setQuantityInCart(int quantityInCart) {
+		this.quantityInCart = quantityInCart;
 	}
 	
 	

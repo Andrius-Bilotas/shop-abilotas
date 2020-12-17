@@ -20,6 +20,16 @@ export default class ProductAdministrationContainer extends Component {
             })
     }
 
+    removeItem = (id) => {
+        axios.delete(`/spring-boot-starter/api/products/${id}`)
+            .then((response) => {
+                this.setState({product: response.data});
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
     render() {
         return (
             <main className="container pt-3">
@@ -49,6 +59,7 @@ export default class ProductAdministrationContainer extends Component {
                                         image={item.image}
                                         id={item.id}
                                         key={item.id}
+                                        onRemove={this.removeItem}
                                     />
                                     )
                                 })

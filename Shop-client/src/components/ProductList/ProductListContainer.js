@@ -10,7 +10,7 @@ export default class ProductListContainer extends Component {
 
 
     componentDidMount() {
-        axios.get('/spring-boot-starter/api/products')
+        axios.get(`/spring-boot-starter/api/products?title=`)
             .then((response) => {
                 this.setState({ product: response.data });
                 console.log(this.state);
@@ -20,9 +20,25 @@ export default class ProductListContainer extends Component {
             })
     }
 
+    handleChange = e => {
+        e.preventDefault();
+        axios.get(`/spring-boot-starter/api/products?title=${e.target.value}`)
+            .then(response => {
+                this.setState({product: response.data})
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     render() {
         return (
-            <main className="container pt-5">
+            <main className="container pt-3">
+                <div className="row pb-3">
+                    <form>
+                        <input className="form-control" type="text" onChange={this.handleChange}/>
+                    </form>
+                </div>
                 <div className="row">
                     {this.state.product.map((item) => {
                         return (

@@ -1,8 +1,6 @@
 package it.akademija.product.model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,11 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import it.akademija.cart.model.CartEntity;
+import it.akademija.cart.model.CartItem;
 
 @Entity
 public final class Product {
@@ -31,11 +29,8 @@ public final class Product {
 	@JoinColumn(name="productDetails_id")
 	private ProductDetails productDetails;
 	
-	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH})
-	@JoinTable(name="Cart_products",
-	joinColumns=@JoinColumn(name="Product_id"),
-	inverseJoinColumns=@JoinColumn(name="Cart_owner"))
-	private Set<CartEntity> carts;
+	@OneToMany(mappedBy="product", cascade = CascadeType.ALL)
+	private Set<CartItem> cartItems;
 	
 	public Product() {}
 	
@@ -44,7 +39,7 @@ public final class Product {
 		this.title = title;
 		this.price = price;
 		this.quantity = quantity;
-		this.carts = new HashSet<>();
+		this.cartItems = new HashSet<>();
 	}
 	
 	public Product(String title, double price, int quantity, ProductDetails productDetails) {
@@ -53,7 +48,7 @@ public final class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.productDetails = productDetails;
-		this.carts = new HashSet<>();
+		this.cartItems = new HashSet<>();
 	}
 
 	public int getId() {
@@ -88,12 +83,12 @@ public final class Product {
 		this.quantity = quantity;
 	}
 
-	public Set<CartEntity> getCarts() {
-		return carts;
+	public Set<CartItem> getCartItems() {
+		return cartItems;
 	}
 
-	public void setCarts(Set<CartEntity> carts) {
-		this.carts = carts;
+	public void setCartItems(Set<CartItem> cartItems) {
+		this.cartItems = cartItems;
 	}
 
 	public ProductDetails getProductDetails() {
@@ -102,6 +97,42 @@ public final class Product {
 
 	public void setProductDetails(ProductDetails productDetails) {
 		this.productDetails = productDetails;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + quantity;
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (id != other.id)
+			return false;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		if (quantity != other.quantity)
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
 	}
 	
 	

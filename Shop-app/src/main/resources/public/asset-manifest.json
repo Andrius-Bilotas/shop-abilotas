@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.js": "/spring-boot-starter/static/js/main.fda26540.chunk.js",
-    "main.js.map": "/spring-boot-starter/static/js/main.fda26540.chunk.js.map",
+    "main.js": "/spring-boot-starter/static/js/main.d02862df.chunk.js",
+    "main.js.map": "/spring-boot-starter/static/js/main.d02862df.chunk.js.map",
     "runtime-main.js": "/spring-boot-starter/static/js/runtime-main.1b4e40bb.js",
     "runtime-main.js.map": "/spring-boot-starter/static/js/runtime-main.1b4e40bb.js.map",
     "static/css/2.437d98bc.chunk.css": "/spring-boot-starter/static/css/2.437d98bc.chunk.css",
-    "static/js/2.2269b3fd.chunk.js": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js",
-    "static/js/2.2269b3fd.chunk.js.map": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js.map",
+    "static/js/2.283c8ecc.chunk.js": "/spring-boot-starter/static/js/2.283c8ecc.chunk.js",
+    "static/js/2.283c8ecc.chunk.js.map": "/spring-boot-starter/static/js/2.283c8ecc.chunk.js.map",
     "static/js/3.4ebad7d2.chunk.js": "/spring-boot-starter/static/js/3.4ebad7d2.chunk.js",
     "static/js/3.4ebad7d2.chunk.js.map": "/spring-boot-starter/static/js/3.4ebad7d2.chunk.js.map",
     "index.html": "/spring-boot-starter/index.html",
-    "precache-manifest.717d70dea81154ffc53b5df5b491f69d.js": "/spring-boot-starter/precache-manifest.717d70dea81154ffc53b5df5b491f69d.js",
+    "precache-manifest.95689a885c475d7e4da3d8ab44ecfcf7.js": "/spring-boot-starter/precache-manifest.95689a885c475d7e4da3d8ab44ecfcf7.js",
     "service-worker.js": "/spring-boot-starter/service-worker.js",
     "static/css/2.437d98bc.chunk.css.map": "/spring-boot-starter/static/css/2.437d98bc.chunk.css.map",
-    "static/js/2.2269b3fd.chunk.js.LICENSE.txt": "/spring-boot-starter/static/js/2.2269b3fd.chunk.js.LICENSE.txt"
+    "static/js/2.283c8ecc.chunk.js.LICENSE.txt": "/spring-boot-starter/static/js/2.283c8ecc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1b4e40bb.js",
     "static/css/2.437d98bc.chunk.css",
-    "static/js/2.2269b3fd.chunk.js",
-    "static/js/main.fda26540.chunk.js"
+    "static/js/2.283c8ecc.chunk.js",
+    "static/js/main.d02862df.chunk.js"
   ]
 }
